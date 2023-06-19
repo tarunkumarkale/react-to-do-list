@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import OK from './OK'
+import './Ap.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+const[one,setone]=useState('')
+const[two,settwo]=useState([])
+
+const first=(e)=>{
+      setone(e.target.value)
+
 }
 
-export default App;
+
+const tarun=()=>{
+    settwo((perevalue)=>{
+         return [...perevalue,one]
+        });
+        setone('');
+      };
+      const trash=(index)=>{
+          let eon=[...two]
+          eon.splice(index,1)
+           settwo(eon)
+      }
+
+  return (
+<> 
+             <h1 className='head'>Welcome to-do  list</h1>
+<div>
+  <input type="text"  onChange={(e)=>first(e)}  value={one}/>
+    <button onClick={tarun}> + </button>
+    
+         {
+          two.map((curl ,index ,arry)=> <OK  element={curl}   id={index}  del={()=>trash(index)}/> )
+         }
+         </div>
+</>
+  )
+}
+
+export default App

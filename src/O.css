@@ -1,0 +1,11 @@
+span{
+    cursor: pointer;
+   >img{
+    width: 7vw;
+    height: 10vh;
+    position: absolute;
+    
+   }
+ 
+
+}

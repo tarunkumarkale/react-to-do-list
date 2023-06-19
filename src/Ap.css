@@ -1,0 +1,25 @@
+div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+input{
+    width: 18vw;
+    height: 5vh;
+    border-style: solid ;
+background-color: blueviolet;
+color: white;    
+font-size: 1.4em;display: inline-block;
+}  
+
+button{
+    display: inline-block
+}
+
+.head{
+    text-align: center;
+    position: relative;
+    margin-bottom: 80%;
+    
+}
