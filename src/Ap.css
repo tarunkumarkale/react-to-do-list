@@ -1,25 +1,58 @@
-div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-input{
-    width: 18vw;
-    height: 5vh;
-    border-style: solid ;
-background-color: blueviolet;
-color: white;    
-font-size: 1.4em;display: inline-block;
-}  
 
-button{
-    display: inline-block
+.input-container {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 20px; */
 }
 
-.head{
-    text-align: center;
-    position: relative;
-    margin-bottom: 80%;
-    
+.input-container .inside {
+    width: 20vw;
+    height: 5vh;
+    font-size: 1.5vw;
+    text-transform: capitalize;
+    position: relative; /* Needed for absolute positioning of button */
+    box-sizing: border-box;
+}
+
+.input-container button {
+    position: absolute;
+
+           margin-left:17.2vw ; 
+        height:5vh ;
+        width:4vw;
+        font-size: 2vw;
+}
+
+.upper{
+    display: flex;
+    justify-content: center;
+}
+
+
+  
+  .smallPage {
+    display: none;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  
+  .smallPage .showPage{
+    display: block; 
+  }
+  .hide{
+    display: none;
+  }
+  
+  ul {
+display: flex;
+justify-content: center;
+}
+ 
+ul li {
+  font-size: 2vw;
 }
