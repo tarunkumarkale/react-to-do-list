@@ -1,12 +1,14 @@
-import React from 'react'
-import ".//O.css"
+import React, { useState } from 'react'
+import { FaTrashCan } from "react-icons/fa6";
+const Body = ({first,del}) => {
 
-const OK = (props) => {
+
   return (
- <>
-    <h1><ol>{props.element}  <span onClick={props.del}><img src="https://www.toter.com/sites/default/files/styles/product_detail/public/2022-08/Toter_64Gallon_TwoWheelCan_Graystone_25564_Main.png?itok=Whjdi_dx" alt="" /></span></ol> </h1>
- </>
+    <>
+           <ul><li> <h1>{first} <button onClick={del}> <FaTrashCan/> </button></h1> </li></ul>
+        
+    </>
   )
 }
 
-export default OK
+export default Body
