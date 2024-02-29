@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaTrashCan } from "react-icons/fa6";
-const Body = ({first,del}) => {
+const OK = ({first,del}) => {
 
 
   return (
@@ -11,4 +11,4 @@ const Body = ({first,del}) => {
   )
 }
 
-export default Body
+export default OK
