@@ -22,18 +22,21 @@ const[tickk,settickk]=useState([<ImCross/>])
 
 const Trash = (receive) => {
   const afterDelete = finalInp.filter((_, id) => id !== receive);
-  const aftertick=finalInp.filter((_,id)=>id!==receive)
-  settickk(aftertick)
+  const aftertick = finalInp.filter((_, id) => id !== receive);
+settickk(aftertick)
   setFinalInp(afterDelete);
 
 };
 
 
 const mark=(ind)=>{
-let thickk=[]
-thickk=[...tickk]
-thickk[ind] = !thickk[ind]; 
- settickk(thickk)
+let thick=[]
+  thick =[...tickk]
+  thick[ind]=!thick[ind]
+
+   settickk(thick)
+ 
+   console.log('yes')
 }
 
   const handleChange = (e) => {
