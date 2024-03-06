@@ -5,6 +5,7 @@ import "./App.css";
 import { FaTrashCan } from "react-icons/fa6";
 import { ImCheckmark } from "react-icons/im";
 import { ImCross } from "react-icons/im";
+
 const datagetting = () => {
   let datalist = localStorage.getItem("data");
   if (datalist) {
@@ -18,23 +19,20 @@ const App = () => {
   const [Inp, setInp] = useState("");
   const [finalInp, setFinalInp] = useState(datagetting());
   const [showPage, setShowPage] = useState(false);
-const[tickk,settickk]=useState([<ImCross/>])
+  const [tickk, settickk] = useState([]);
 
-const Trash = (receive) => {
-  const afterDelete = finalInp.filter((_, id) => id !== receive);
-  const aftertick=finalInp.filter((_,id)=>id!==receive)
-  settickk(aftertick)
-  setFinalInp(afterDelete);
+  const Trash = (receive) => {
+    const afterDelete = finalInp.filter((_, id) => id !== receive);
+    const aftertick = tickk.filter((_, id) => id !== receive);
+    settickk(aftertick);
+    setFinalInp(afterDelete);
+  };
 
-};
-
-
-const mark=(ind)=>{
-let thickk=[]
-thickk=[...tickk]
-thickk[ind] = !thickk[ind]; 
- settickk(thickk)
-}
+  const mark = (ind) => {
+    let thickk = [...tickk];
+    thickk[ind] = !thickk[ind];
+    settickk(thickk);
+  };
 
   const handleChange = (e) => {
     setInp(e.target.value);
@@ -42,10 +40,10 @@ thickk[ind] = !thickk[ind];
 
   const Send = () => {
     setFinalInp((prev) => [...prev, Inp]);
+    settickk((prev) => [...prev, false]); // Initialize tickk state for new item
     setInp("");
     setShowPage(true);
   };
-
 
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(finalInp));
@@ -75,9 +73,18 @@ thickk[ind] = !thickk[ind];
         </div>
 
         <div>
-          {showPage && finalInp.map((Element, index) => (
-            <ul key={index}><li >{Element}  <button onClick={()=>mark(index)}>{tickk[index]?<ImCheckmark/>:<ImCross/>}</button>  <button onClick={()=>Trash(index)}><FaTrashCan/></button></li></ul>
-          ))}
+          {showPage &&
+            finalInp.map((Element, index) => (
+              <ul key={index}>
+                <li style={tickk[index] ? { backgroundColor: 'red', width: '400px', height: '100px' } : {}}>
+                  {Element}
+                  <button onClick={() => mark(index)}>
+                    {tickk[index] ? <ImCheckmark /> : <ImCross />}
+                  </button>
+                  <button onClick={() => Trash(index)}><FaTrashCan /></button>
+                </li>
+              </ul>
+            ))}
         </div>
       </div>
     </>
@@ -85,4 +92,3 @@ thickk[ind] = !thickk[ind];
 };
 
 export default App;
-
